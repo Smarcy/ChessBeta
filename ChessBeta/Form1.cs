@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +16,14 @@ namespace ChessBeta
     {
         private Engine.Board _board;
         private Engine.Piece[,] _piece;
-        private Button[,] btnArraySet;
+        private Tuple<int, int> _firstClickedCoords;
+        private Tuple<int, int> _secondClickedCoords;
+        private bool _clickedFlag = false;
 
         public Form1()
         {
             InitializeComponent();
-            btnArraySet = AddButtons();
+            AddButtons();
 
 
 
@@ -50,6 +53,7 @@ namespace ChessBeta
                     btnArray[i,j].Tag = i + 1; // Tag of button 
                     btnArray[i, j].Width = 70; // Width of button 
                     btnArray[i, j].Height = 70; // Height of button 
+                    btnArray[i, j].Tag = new Tuple<int, int>(i,j);
 
                     switch (i % 2)
                     {
@@ -85,10 +89,7 @@ namespace ChessBeta
 
                     // the Event of click Button 
                     btnArray[i, j].Click += new System.EventHandler(ClickButton);
-                    
                 }
-
-                
             }
 
             for (int i = 0; i < 8; i++)
@@ -98,13 +99,27 @@ namespace ChessBeta
                     btnArray[i, j].Image = _piece[i, j].Image;
                 }
             }
+            
             return btnArray;
         }
 
-        public void ClickButton(Object sender, System.EventArgs e)
+        public void ClickButton(object sender, System.EventArgs e)
         {
-            Button btn = (Button) sender;
-            
+            Button btn = (Button)sender;
+            if (_clickedFlag)
+            {
+                _secondClickedCoords = (Tuple<int, int>) btn.Tag;
+                _piece[_secondClickedCoords.Item1, _secondClickedCoords.Item2].Image =
+                    _piece[_firstClickedCoords.Item1, _firstClickedCoords.Item2].Image;
+
+                _piece[_firstClickedCoords.Item1, _firstClickedCoords.Item2].Image = null;
+                _clickedFlag = false;
+            }
+            else
+            {
+                _firstClickedCoords = (Tuple<int, int>) btn.Tag;
+                _clickedFlag = true;
+            }
         }
     }
 }
