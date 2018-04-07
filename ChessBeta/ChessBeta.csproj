@@ -85,41 +85,5 @@
       <Name>Engine</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BB.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BN.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BP.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BR.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WB.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WK.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WN.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WP.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WQ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WR.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

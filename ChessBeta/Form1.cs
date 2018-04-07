@@ -15,17 +15,18 @@ namespace ChessBeta
     {
         private Engine.Board _board;
         private Engine.Piece[,] _piece;
+        private Button[,] btnArraySet;
 
         public Form1()
         {
             InitializeComponent();
-            AddButtons();
+            btnArraySet = AddButtons();
 
 
 
         }
 
-        private void AddButtons()
+        private Button[,] AddButtons()
         {
 
             _board = new Engine.Board();
@@ -70,10 +71,8 @@ namespace ChessBeta
 
 
                     if (j == 0) // Location of second line of buttons: 
-                    {
                         xPos = 0;
-                       // yPos = btnArray[i,j].Top + 70;
-                    }
+
                     if(i >= 1)
                         yPos = btnArray[i-1, j].Top + 70;
 
@@ -83,13 +82,13 @@ namespace ChessBeta
                     // Add buttons to a Panel: 
                     pnlButtons.Controls.Add(btnArray[i, j]); // Let panel hold the Buttons 
                     xPos = xPos + btnArray[i, j].Width; // Left of next button 
-                    // Write English Character: 
-                  //  btnArray[i,j].Text = ((char) (n)).ToString();
 
                     // the Event of click Button 
                     btnArray[i, j].Click += new System.EventHandler(ClickButton);
                     
                 }
+
+                
             }
 
             for (int i = 0; i < 8; i++)
@@ -99,12 +98,13 @@ namespace ChessBeta
                     btnArray[i, j].Image = _piece[i, j].Image;
                 }
             }
+            return btnArray;
         }
 
         public void ClickButton(Object sender, System.EventArgs e)
         {
             Button btn = (Button) sender;
-            MessageBox.Show("You clicked character [" + btn.Text + "]");
+            
         }
     }
 }
