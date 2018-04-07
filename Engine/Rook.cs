@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Engine
 {
@@ -13,7 +14,7 @@ namespace Engine
 
 
 
-        public Rook(PieceColor pieceColor) : base(_SYMBOL, pieceColor)
+        public Rook(PieceColor pieceColor, Bitmap image) : base(_SYMBOL, pieceColor, image)
         {
 
         }

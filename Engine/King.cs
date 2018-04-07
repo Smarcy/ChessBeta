@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Engine
 {
@@ -10,7 +11,7 @@ namespace Engine
     {
         private const char _SYMBOL = 'K';
 
-        public King(PieceColor pieceColor) : base(_SYMBOL, pieceColor)
+        public King(PieceColor pieceColor, Bitmap image) : base(_SYMBOL, pieceColor, image)
         {
 
         }

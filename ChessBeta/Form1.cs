@@ -96,7 +96,7 @@ namespace ChessBeta
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    btnArray[i, j].Text = _piece[i, j].Symbol.ToString();
+                    btnArray[i, j].Image = _piece[i, j].Image;
                 }
             }
         }

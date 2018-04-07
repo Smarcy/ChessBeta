@@ -17,32 +17,32 @@ namespace Engine
 
             for (int i = 0; i < 8; i++)
             {
-                Chessboard[1, i] = new Pawn(Piece.PieceColor.Black);
-                Chessboard[6, i] = new Pawn(Piece.PieceColor.White);
+                Chessboard[1, i] = new Pawn(Piece.PieceColor.Black, Engine.Properties.Resources.WP);
+                Chessboard[6, i] = new Pawn(Piece.PieceColor.White, Engine.Properties.Resources.BP);
             }
             //
             // Populate White Pieces
             //
-            Chessboard[0, 0] = new Rook(Piece.PieceColor.White);
-            Chessboard[0, 7] = new Rook(Piece.PieceColor.White);
-            Chessboard[0, 1] = new Knight(Piece.PieceColor.White);
-            Chessboard[0, 6] = new Knight(Piece.PieceColor.White);
-            Chessboard[0, 2] = new Bishop(Piece.PieceColor.White);
-            Chessboard[0, 5] = new Bishop(Piece.PieceColor.White);
-            Chessboard[0, 3] = new Queen(Piece.PieceColor.White);
-            Chessboard[0, 4] = new King(Piece.PieceColor.White);
+            Chessboard[0, 0] = new Rook(Piece.PieceColor.White, Engine.Properties.Resources.WR);
+            Chessboard[0, 7] = new Rook(Piece.PieceColor.White, Engine.Properties.Resources.WR);
+            Chessboard[0, 1] = new Knight(Piece.PieceColor.White, Engine.Properties.Resources.WK);
+            Chessboard[0, 6] = new Knight(Piece.PieceColor.White, Engine.Properties.Resources.WK);
+            Chessboard[0, 2] = new Bishop(Piece.PieceColor.White, Engine.Properties.Resources.WB);
+            Chessboard[0, 5] = new Bishop(Piece.PieceColor.White, Engine.Properties.Resources.WB);
+            Chessboard[0, 3] = new Queen(Piece.PieceColor.White, Engine.Properties.Resources.WQ);
+            Chessboard[0, 4] = new King(Piece.PieceColor.White, Engine.Properties.Resources.WK);
 
             //
             // Populate Black Pieces
             //
-            Chessboard[7, 0] = new Rook(Piece.PieceColor.Black);
-            Chessboard[7, 7] = new Rook(Piece.PieceColor.Black);
-            Chessboard[7, 1] = new Knight(Piece.PieceColor.Black);
-            Chessboard[7, 6] = new Knight(Piece.PieceColor.Black);
-            Chessboard[7, 2] = new Bishop(Piece.PieceColor.Black);
-            Chessboard[7, 5] = new Bishop(Piece.PieceColor.Black);
-            Chessboard[7, 3] = new Queen(Piece.PieceColor.Black);
-            Chessboard[7, 4] = new King(Piece.PieceColor.Black);
+            Chessboard[7, 0] = new Rook(Piece.PieceColor.Black, Engine.Properties.Resources.BR);
+            Chessboard[7, 7] = new Rook(Piece.PieceColor.Black, Engine.Properties.Resources.BR);
+            Chessboard[7, 1] = new Knight(Piece.PieceColor.Black, Engine.Properties.Resources.BK);
+            Chessboard[7, 6] = new Knight(Piece.PieceColor.Black, Engine.Properties.Resources.BK);
+            Chessboard[7, 2] = new Bishop(Piece.PieceColor.Black, Engine.Properties.Resources.BB);
+            Chessboard[7, 5] = new Bishop(Piece.PieceColor.Black, Engine.Properties.Resources.BB);
+            Chessboard[7, 3] = new Queen(Piece.PieceColor.Black, Engine.Properties.Resources.BQ);
+            Chessboard[7, 4] = new King(Piece.PieceColor.Black, Engine.Properties.Resources.BK);
 
             //
             // Populate Free Tiles
@@ -51,7 +51,7 @@ namespace Engine
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    Chessboard[i,j] = new FreeTile(Piece.PieceColor.None);
+                    Chessboard[i,j] = new FreeTile(Piece.PieceColor.None, null);
                 }
                 
             }

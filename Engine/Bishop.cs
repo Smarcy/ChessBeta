@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Engine
 {
@@ -11,7 +12,7 @@ namespace Engine
     {
         private const char _SYMBOL = 'B';
 
-        public Bishop(PieceColor pieceColor) : base(_SYMBOL, pieceColor)
+        public Bishop(PieceColor pieceColor, Bitmap image) : base(_SYMBOL, pieceColor, image)
         {
 
         }

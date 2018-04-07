@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Engine
 {
@@ -11,7 +12,7 @@ namespace Engine
         public bool Virgin { get; set; }
         private const char _SYMBOL = 'P';
 
-        public Pawn(PieceColor pieceColor) : base(_SYMBOL, pieceColor)
+        public Pawn(PieceColor pieceColor, Bitmap image) : base(_SYMBOL, pieceColor, image)
         {
             
         }

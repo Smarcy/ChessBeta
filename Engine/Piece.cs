@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Drawing;
 
 namespace Engine
 {
-    public class Piece
+    public abstract class Piece
     {
         private char _symbol;
         private PieceColor _pieceColor;
+        private Bitmap _image;
+
+        public Bitmap Image
+        {
+            get { return _image;}
+            set { _image = value; }
+        }
 
         public PieceColor pColor
         {
@@ -32,10 +40,11 @@ namespace Engine
             None
         };
 
-        public Piece(char symbol, PieceColor pieceColor)
+        protected Piece(char symbol, PieceColor pieceColor, Bitmap image)
         {
             Symbol = symbol;
             pColor = pieceColor;
+            Image = image;
         }
        
     }
