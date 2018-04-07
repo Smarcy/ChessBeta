@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Engine
+{
+    public class Pawn : Piece
+    {
+        public bool Virgin { get; set; }
+        private const char _SYMBOL = 'P';
+
+        public Pawn(PieceColor pieceColor) : base(_SYMBOL, pieceColor)
+        {
+            
+        }
+    }
+}

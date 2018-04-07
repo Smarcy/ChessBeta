@@ -1,0 +1,13 @@
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.csprojResolveAssemblyReference.cache
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.Form1.resources
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.Properties.Resources.resources
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.csproj.GenerateResource.cache
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.csproj.CoreCompileInputs.cache
+D:\Programming\C#\ChessBeta\ChessBeta\bin\Debug\ChessBeta.exe.config
+D:\Programming\C#\ChessBeta\ChessBeta\bin\Debug\ChessBeta.exe
+D:\Programming\C#\ChessBeta\ChessBeta\bin\Debug\ChessBeta.pdb
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.exe
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.pdb
+D:\Programming\C#\ChessBeta\ChessBeta\bin\Debug\Engine.dll
+D:\Programming\C#\ChessBeta\ChessBeta\bin\Debug\Engine.pdb
+D:\Programming\C#\ChessBeta\ChessBeta\obj\Debug\ChessBeta.csproj.CopyComplete
