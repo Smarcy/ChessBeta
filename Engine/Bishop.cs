@@ -16,5 +16,10 @@ namespace Engine
         {
 
         }
+
+        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

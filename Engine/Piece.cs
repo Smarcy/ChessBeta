@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Drawing;
+using System.Windows;
 
 namespace Engine
 {
@@ -39,6 +40,8 @@ namespace Engine
             White,
             None
         };
+
+        public abstract bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition);
 
         protected Piece(char symbol, PieceColor pieceColor, Bitmap image)
         {

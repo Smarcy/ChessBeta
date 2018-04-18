@@ -1,8 +1,8 @@
 D:\Programming\C#\ChessBeta\Engine\bin\Debug\Engine.dll
 D:\Programming\C#\ChessBeta\Engine\bin\Debug\Engine.pdb
-D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
 D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.csproj.CoreCompileInputs.cache
 D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.dll
 D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.pdb
 D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.Properties.Resources.resources
 D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.csproj.GenerateResource.cache
+D:\Programming\C#\ChessBeta\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache

@@ -9,24 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using Engine;
 
 namespace ChessBeta
 {
     public partial class Form1 : Form
     {
+        #region member
         private Engine.Board _board;
         private Engine.Piece[,] _piece;
-        private Tuple<int, int> _firstClickedCoords;
-        private Tuple<int, int> _secondClickedCoords;
+        private Tuple<int, int> _firstClick;
+        private Tuple<int, int> _secondClick;
         private bool _clickedFlag = false;
+        private int xPosFrom;
+        private int yPosFrom;
+        private readonly System.Windows.Forms.Button[,] _btnAll = new Button[8, 8];
+        #endregion
 
         public Form1()
         {
             InitializeComponent();
-            AddButtons();
-
-
-
+            _btnAll = AddButtons();
         }
 
         private Button[,] AddButtons()
@@ -77,7 +80,7 @@ namespace ChessBeta
                     if (j == 0) // Location of second line of buttons: 
                         xPos = 0;
 
-                    if(i >= 1)
+                    if (i >= 1)
                         yPos = btnArray[i-1, j].Top + 70;
 
                     // Location of button: 
@@ -106,19 +109,35 @@ namespace ChessBeta
         public void ClickButton(object sender, System.EventArgs e)
         {
             Button btn = (Button)sender;
-            if (_clickedFlag)
-            {
-                _secondClickedCoords = (Tuple<int, int>) btn.Tag;
-                _piece[_secondClickedCoords.Item1, _secondClickedCoords.Item2].Image =
-                    _piece[_firstClickedCoords.Item1, _firstClickedCoords.Item2].Image;
 
-                _piece[_firstClickedCoords.Item1, _firstClickedCoords.Item2].Image = null;
-                _clickedFlag = false;
+            if (!_clickedFlag)
+            {
+                _firstClick = (Tuple<int, int>)btn.Tag;
+                xPosFrom = _firstClick.Item1;
+                yPosFrom = _firstClick.Item2;
+
+                _clickedFlag = true;
             }
             else
             {
-                _firstClickedCoords = (Tuple<int, int>) btn.Tag;
-                _clickedFlag = true;
+                _secondClick = (Tuple<int, int>)btn.Tag;
+
+                if (_piece[xPosFrom, _firstClick.Item2].Symbol == 'P')
+                {
+                    bool valid = _piece[xPosFrom, yPosFrom].ValidMove(_piece, (xPosFrom, yPosFrom), (_secondClick.Item1, _secondClick.Item2));
+
+                    if (valid)
+                    {
+                        _board.Chessboard[_secondClick.Item1, _secondClick.Item2] = _board.Chessboard[xPosFrom, yPosFrom];
+                        _btnAll[_secondClick.Item1, _secondClick.Item2].Image = _btnAll[xPosFrom, yPosFrom].Image;
+
+                        _btnAll[xPosFrom, yPosFrom].Image = null;
+                        _board.Chessboard[xPosFrom, yPosFrom] = new FreeTile(Piece.PieceColor.None, null);
+                    }
+                }
+
+                _clickedFlag = false;
+
             }
         }
     }
