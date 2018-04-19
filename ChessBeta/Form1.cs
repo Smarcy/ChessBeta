@@ -122,8 +122,8 @@ namespace ChessBeta
             {
                 _secondClick = (Tuple<int, int>)btn.Tag;
 
-                if (_piece[xPosFrom, _firstClick.Item2].Symbol == 'P')
-                {
+              //  if (_piece[xPosFrom, _firstClick.Item2].Symbol == 'P')
+              //  {
                     bool valid = _piece[xPosFrom, yPosFrom].ValidMove(_piece, (xPosFrom, yPosFrom), (_secondClick.Item1, _secondClick.Item2));
 
                     if (valid)
@@ -134,7 +134,7 @@ namespace ChessBeta
                         _btnAll[xPosFrom, yPosFrom].Image = null;
                         _board.Chessboard[xPosFrom, yPosFrom] = new FreeTile(Piece.PieceColor.None, null);
                     }
-                }
+             //   }
 
                 _clickedFlag = false;
 

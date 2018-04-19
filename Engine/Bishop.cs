@@ -19,7 +19,95 @@ namespace Engine
 
         public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition)
         {
-            throw new NotImplementedException();
+            var tilesToMoveY = startPosition.Y - targetPosition.Y;
+            var tilesToMoveX = startPosition.X - targetPosition.X;
+            var startTile = board[startPosition.Y, startPosition.X];
+            var targetTile = board[targetPosition.Y, targetPosition.X];
+            int j = (startPosition.Y - 1);
+            int j2 = (startPosition.Y + 1);
+            int i = (startPosition.X - 1);
+            int i2 = (startPosition.X + 1);
+            int k = targetPosition.X;
+
+            #region Movement Y+
+            if (targetPosition.Y < startPosition.Y)
+            {
+                if (targetPosition.X < startPosition.X)
+                {
+                    if (tilesToMoveX == tilesToMoveY)
+                    {
+                        while (i >= k)
+                        {
+                            if (board[j, i].pColor != PieceColor.None)
+                            {
+                                return false;
+                            }
+                            j--;
+                            i--;
+                        }
+                        return true;
+                    }
+                }
+
+                if (targetPosition.X > startPosition.X)
+                {
+                    if (Math.Abs(tilesToMoveX) == Math.Abs(tilesToMoveY))
+                    {
+                        while (i2 <= k)
+                        {
+                            if (board[j, i2].pColor != PieceColor.None)
+                            {
+                                return false;
+                            }
+                            j--;
+                            i2++;
+                        }
+                        return true;
+                    }
+                }
+            }
+            #endregion
+            #region Movement Y-
+            if (targetPosition.Y > startPosition.Y)
+            {
+                if (targetPosition.X < startPosition.X)
+                {
+                    if (Math.Abs(tilesToMoveX) == Math.Abs(tilesToMoveY))
+                    {
+                        while (i >= k)
+                        {
+                            if (board[j2, i].pColor != PieceColor.None)
+                            {
+                                return false;
+                            }
+                            j2++;
+                            i--;
+                        }
+                        return true;
+                    }
+                }
+
+                if (targetPosition.X > startPosition.X)
+                {
+                    if (Math.Abs(tilesToMoveX) == Math.Abs(tilesToMoveY))
+                    {
+                        while (i2 <= k)
+                        {
+                            if (board[j2, i2].pColor != PieceColor.None)
+                            {
+                                return false;
+                            }
+                            j2++;
+                            i2++;
+                        }
+                        return true;
+                    }
+                }
+            }
+            #endregion
+
+
+            return false;
         }
     }
 }
