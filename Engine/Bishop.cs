@@ -29,6 +29,7 @@ namespace Engine
             int i2 = (startPosition.X + 1);
             int k = targetPosition.X;
 
+
             #region Movement Y+
             if (targetPosition.Y < startPosition.Y)
             {
@@ -40,6 +41,8 @@ namespace Engine
                         {
                             if (board[j, i].pColor != PieceColor.None)
                             {
+                                if (board[j, i].pColor != startTile.pColor)
+                                    return true;
                                 return false;
                             }
                             j--;
@@ -57,6 +60,8 @@ namespace Engine
                         {
                             if (board[j, i2].pColor != PieceColor.None)
                             {
+                                if (board[j, i].pColor != startTile.pColor)
+                                    return true;
                                 return false;
                             }
                             j--;
