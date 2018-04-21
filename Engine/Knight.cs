@@ -20,7 +20,29 @@ namespace Engine
         {
             killPosition.X = -1;
             killPosition.Y = -1;
-            throw new NotImplementedException();
+
+            int dirY = Math.Abs(startPosition.Y - targetPosition.Y);
+            int dirX = Math.Abs(startPosition.X - targetPosition.X);
+
+            List<Tuple<int, int>> validMoves =
+                new List<Tuple<int, int>>
+                {
+                    new Tuple<int, int>(2, 1),
+                    new Tuple<int, int>(2, -1),
+                    new Tuple<int, int>(1, 2),
+                    new Tuple<int, int>(-1, 2),
+                };
+
+            foreach (var element in validMoves)
+            {
+                if (element.Item1 == dirY)
+                {
+                    if (element.Item2 == dirX)
+                        return true;
+                }
+            }
+
+            return false;
         }
     }
 }
