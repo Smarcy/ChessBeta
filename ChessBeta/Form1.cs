@@ -15,7 +15,7 @@ namespace ChessBeta
 {
     public partial class Form1 : Form
     {
-        #region member
+        #region members
         private Engine.Board _board;
         private Engine.Piece[,] _piece;
         private Tuple<int, int> _firstClick;
@@ -122,19 +122,23 @@ namespace ChessBeta
             {
                 _secondClick = (Tuple<int, int>)btn.Tag;
 
-              //  if (_piece[xPosFrom, _firstClick.Item2].Symbol == 'P')
-              //  {
-                    bool valid = _piece[xPosFrom, yPosFrom].ValidMove(_piece, (xPosFrom, yPosFrom), (_secondClick.Item1, _secondClick.Item2));
+                    bool valid = _piece[xPosFrom, yPosFrom].ValidMove(_piece, (xPosFrom, yPosFrom), (_secondClick.Item1, _secondClick.Item2), out (int Y, int X) killPosition);
 
-                    if (valid)
-                    {
-                        _board.Chessboard[_secondClick.Item1, _secondClick.Item2] = _board.Chessboard[xPosFrom, yPosFrom];
-                        _btnAll[_secondClick.Item1, _secondClick.Item2].Image = _btnAll[xPosFrom, yPosFrom].Image;
+                if (valid)
+                {
+                    _board.Chessboard[_secondClick.Item1, _secondClick.Item2] = _board.Chessboard[xPosFrom, yPosFrom];
+                    _btnAll[_secondClick.Item1, _secondClick.Item2].Image = _btnAll[xPosFrom, yPosFrom].Image;
+                    _btnAll[xPosFrom, yPosFrom].Image = null;
+                    _board.Chessboard[xPosFrom, yPosFrom] = new FreeTile(Piece.PieceColor.None, null);
+                }
 
-                        _btnAll[xPosFrom, yPosFrom].Image = null;
-                        _board.Chessboard[xPosFrom, yPosFrom] = new FreeTile(Piece.PieceColor.None, null);
-                    }
-             //   }
+                if (killPosition.X >= 0 && killPosition.Y >= 0)            // Check if target Tile has to be adjusted
+                {
+                    _board.Chessboard[killPosition.Y, killPosition.X] = _board.Chessboard[xPosFrom, yPosFrom];
+                    _btnAll[killPosition.Y, killPosition.X].Image = _btnAll[xPosFrom, yPosFrom].Image;
+                    _btnAll[xPosFrom, yPosFrom].Image = null;
+                    _board.Chessboard[xPosFrom, yPosFrom] = new FreeTile(Piece.PieceColor.None, null);
+                }
 
                 _clickedFlag = false;
 

@@ -16,7 +16,7 @@ namespace Engine
 
         }
 
-        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition)
+        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition, out (int Y, int X) killPosition)
         {
             throw new NotImplementedException();
         }

@@ -41,7 +41,7 @@ namespace Engine
             None
         };
 
-        public abstract bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition);
+        public abstract bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition, out (int Y, int X) killPosition);
 
         protected Piece(char symbol, PieceColor pieceColor, Bitmap image)
         {

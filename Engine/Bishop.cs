@@ -17,8 +17,10 @@ namespace Engine
 
         }
 
-        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition)
+        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition, out (int Y, int X) killPosition)
         {
+            killPosition.X = -1;
+            killPosition.Y = -1;
             var tilesToMoveY = startPosition.Y - targetPosition.Y;
             var tilesToMoveX = startPosition.X - targetPosition.X;
             var startTile = board[startPosition.Y, startPosition.X];
@@ -42,7 +44,10 @@ namespace Engine
                             if (board[j, i].pColor != PieceColor.None)
                             {
                                 if (board[j, i].pColor != startTile.pColor)
-                                    return true;
+                                {
+                                    killPosition.X = i;
+                                    killPosition.Y = j;
+                                }
                                 return false;
                             }
                             j--;
@@ -60,8 +65,11 @@ namespace Engine
                         {
                             if (board[j, i2].pColor != PieceColor.None)
                             {
-                                if (board[j, i].pColor != startTile.pColor)
-                                    return true;
+                                if (board[j, i2].pColor != startTile.pColor)
+                                {
+                                    killPosition.X = i2;
+                                    killPosition.Y = j;
+                                }
                                 return false;
                             }
                             j--;
@@ -83,6 +91,11 @@ namespace Engine
                         {
                             if (board[j2, i].pColor != PieceColor.None)
                             {
+                                if (board[j2, i].pColor != startTile.pColor)
+                                {
+                                    killPosition.X = i;
+                                    killPosition.Y = j2;
+                                }
                                 return false;
                             }
                             j2++;
@@ -100,6 +113,11 @@ namespace Engine
                         {
                             if (board[j2, i2].pColor != PieceColor.None)
                             {
+                                if (board[j2, i2].pColor != startTile.pColor)
+                                {
+                                    killPosition.X = i2;
+                                    killPosition.Y = j2;
+                                }
                                 return false;
                             }
                             j2++;

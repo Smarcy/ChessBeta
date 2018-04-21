@@ -17,8 +17,10 @@ namespace Engine
             FirstMove = true;
         }
 
-        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition)
+        public override bool ValidMove(Piece[,] board, (int Y, int X) startPosition, (int Y, int X) targetPosition, out (int Y, int X) killPosition)
         {
+            killPosition.X = -1;
+            killPosition.Y = -1;
             var tilesToMoveY = startPosition.Y - targetPosition.Y;
             var tilesToMoveX = startPosition.X - targetPosition.X;
             var startTile = board[startPosition.Y, startPosition.X];
