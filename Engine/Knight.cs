@@ -24,22 +24,19 @@ namespace Engine
             int dirY = Math.Abs(startPosition.Y - targetPosition.Y);
             int dirX = Math.Abs(startPosition.X - targetPosition.X);
 
-            List<Tuple<int, int>> validMoves =
-                new List<Tuple<int, int>>
+            #region Possible Knight Movements
+            List<(int Y, int X)> validMoves =
+                new List<(int Y, int X)>
                 {
-                    new Tuple<int, int>(2, 1),
-                    new Tuple<int, int>(2, -1),
-                    new Tuple<int, int>(1, 2),
-                    new Tuple<int, int>(-1, 2),
+                    (2, 1),
+                    (1, 2)
                 };
+            #endregion
 
             foreach (var element in validMoves)
             {
-                if (element.Item1 == dirY)
-                {
-                    if (element.Item2 == dirX)
-                        return true;
-                }
+                if (element.Y == dirY && element.X == dirX)
+                    return true;
             }
 
             return false;
